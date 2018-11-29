@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Inventory across Plants</title>
+    <link rel="stylesheet" type="text/css" href="css/cement.css" />
+    <script type="text/javascript" src="./js/jquery-1.3.min.js"></script>
+    <script type="text/javascript" src="./js/my-jquery.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+ <style>
+
+        .vr {
+    width:1px;
+    background-color:black;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:48%
+}
+ .container{
+     margin-left: 1%;
+     margin-top: 5%;
+     width: 100%;
+     background-color: grey;
+ }
+
+ #inventoryacrossplants, #vendorwise{
+     width: 96%;
+     padding:2%;
+
+ }
+
+
+
+
+.container .box1{
+    position: relative;
+    width:45%;
+    margin-right: 2%;
+    margin-left: 0.20%;
+    float: left;
+}
+.box2{
+    position: relative;
+    width:45%;
+    margin-left: 2%;
+    float: left;
+}
+
+</style>
+
+    <script type="text/javascript">
+
+
+    //    graph 1
+
+        $(document).ready(function () {
+
+            Highcharts.chart('inventoryacrossplants', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Inventory across Plants (2018)'
+                },
+                xAxis: {
+                    categories: ['Nimbahera', 'Mangrol', 'Muddapur', 'Gotan', 'Jharli', 'Katni ', 'Fujairah']
+                },
+                yAxis: {
+                    max: 100,
+                    title: {
+                        text: 'Inventory (%)'
+                    },
+                    stackLabels: {
+                        enabled: false,
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                // legend: {
+                //     align: 'center',
+                //     x: -30,
+                //     verticalAlign: 'bottom',
+                //     y: 25,
+                //     floating: true,
+                //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                //     borderColor: '#CCC',
+                //     borderWidth: 1,
+                //     shadow: false
+                // },
+                tooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}%<br/>'
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: false,
+                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Raw Materials',
+                    data: [21.21, 15.04, 5.36, 11.29, 25.02, 12.07, 10.01],
+                    color: '#1E88E5',
+                }, {
+                    name: 'Work-in-Progress',
+                    data: [19.77, 12.79, 9.58, 11.59, 24.56, 13.23, 8.48],
+                    color: '#009688',
+                }, {
+                    name: 'Finshed goods',
+                    data: [25.96, 9.28, 13.48, 9.19, 19.28, 10.56, 12.25],
+                    color: '#FF9800',
+                }, {
+                    name: 'Stock-in-trade',
+                    data: [29.18, 6.25, 9.23, 16.25, 21.48, 9.25, 8.36],
+                    color: '#D55B26',
+                }, {
+                    name: 'Stores and spares',
+                    data: [30.19, 8.75, 7.21, 11.42, 22.25, 10.51, 9.67],
+                    color: '#A44772',
+                },]
+            });
+
+        });
+    // graph 2
+        $(document).ready(function () {
+
+            Highcharts.chart('vendorwise', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Vendor-Wise Raw Material Procurement (2018)'
+                },
+                xAxis: {
+                    categories: ['EEL INDIA ', 'SGI', 'ENEXCO', 'BNA', 'SUNN', 'ABS ', 'OWN QUARRY']
+                },
+                yAxis: {
+                    max: 100,
+                    title: {
+                        text: 'Inventory (%)'
+                    },
+                    stackLabels: {
+                        enabled: false,
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                // legend: {
+                //     align: 'center',
+                //     x: -30,
+                //     verticalAlign: 'bottom',
+                //     y: 25,
+                //     floating: true,
+                //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                //     borderColor: '#CCC',
+                //     borderWidth: 1,
+                //     shadow: false
+                // },
+                tooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}%<br/>'
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: false,
+                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Limestone',
+                    data: [14.67, null, null, 8.42, null, null ,76.91]
+                }, {
+                    name: 'Gypsum',
+                    data: [null,19.60,31.69,null,48.71,null,null]
+                }, {
+                    name: 'Coal',
+                    data: [ null,56.15,null,33.77,null, 10.08,null]
+                }, {
+                    name: 'Clay',
+                    data: [22.98,null,	39.15,null,null,37.87,null]
+                }, {
+                    name: 'Fly Ash',
+                    data: [null, null, null, null, 54.36,null,45.64]
+                }, {
+                    name: 'Others',
+                    data: [null,36.14,14.57,13.78,null,35.51,null]
+                }]
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <div class="vr">&nbsp;</div>
+    <div class="container">
+        <div class="box1">
+            <div id="inventoryacrossplants"></div>
+        </div>
+    
+        <div class="box2">
+            <div id="vendorwise" ></div>
+        </div>
+</div>
+ </body> </html>

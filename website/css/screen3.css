@@ -1,0 +1,190 @@
+
+.column1 {
+    background-color: lightgrey;
+    position: relative;
+    text-align: center;
+    margin-top: 1.6%;
+    margin-left: 1%;
+    width: 29%;
+    float: left;
+    overflow: hidden;
+    margin-top: 2%;
+    
+}
+
+.column1 img{
+    margin-top: 4%;
+    width: 140%;
+    height: 590px;
+
+}
+
+a{
+    text-decoration: none;
+    font-size: 300%;
+    color: white;
+}
+
+a:hover{
+    color: red;
+}
+
+
+#east {
+    position: absolute;
+    top: 44%;
+    left: 60%;
+}
+
+#west {
+    position: absolute;
+    top: 44%;
+    left: 25%;
+}
+
+#north{
+    position: absolute;
+    top: 20%;
+    left: 33%;
+}
+
+#south {
+    position: absolute;
+    top: 70%;
+    left: 33%;
+}
+
+
+
+
+table {
+
+    font-family: arial, sans-serif;
+    font-size:10px;
+    border-collapse: collapse;
+    width: 90%;
+    width: 90%;
+    margin-left: 5%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+a{
+    font-size: 150%;
+    color: white;
+}
+
+
+
+
+
+
+.columns{
+    margin-top: 3%;
+    margin-left: 2%;
+    width: 100%;
+      
+    
+}
+.columns #content{
+      background-color: black;
+      margin-top: 30%;
+      margin-left:0.5%;
+      width: 65%;
+      margin-left: 30.5%;
+      height: 595px;
+  }
+  
+
+#content #westmap, #northmap, #southmap{
+    width: 63%;
+    float: left;
+}
+
+
+#content #eastmap
+{ 
+    width: 63%;
+    float: left;
+
+} 
+#eastmap  .box1, #eastmap .box2, #eastmap .box3, #eastmap .box4 {
+position: relative;
+   width:49%;
+   background-color: grey;
+   border-radius: 5px;
+   margin-right: 0.5%;
+   margin-left: 0.5%;
+   float: left;  
+   margin-bottom: 1%;
+   height: 300px;
+}
+
+#westmap  .box1, #westmap .box2, #westmap .box3, #westmap .box4 {
+    position: relative;
+       width:49%;
+       background-color: grey;
+       border-radius: 5px;
+       margin-right: 0.5%;
+       margin-left: 0.5%;
+       float: left;  
+       margin-bottom: 1%;
+       height: 300px;
+    }
+
+#northmap  .box1, #northmap .box2, #northmap .box3, #northmap .box4 {
+        position: relative;
+           width:49%;
+           background-color: grey;
+           border-radius: 5px;
+           margin-right: 0.5%;
+           margin-left: 0.5%;
+           float: left;  
+           margin-bottom: 1%;
+           height: 300px;
+        }  
+        
+
+#southmap  .box1, #southmap .box2, #southmap .box3, #southmap .box4 {
+    
+                position: relative;
+               width:49%;
+               background-color: grey;
+               border-radius: 5px;
+               margin-right: 0.5%;
+               margin-left: 0.5%;
+               margin-bottom: 1%;
+               float: left;  
+               height: 300px;
+            }
+
+
+/* graphs */
+
+            #eastgraph1, #eastgraph2, #eastgraph3, #eastgraph4{
+                height: 100%;
+                width: 100%;
+            }
+            #westgraph1, #westgraph2, #westgraph3, #westgraph4{
+                height: 100%;
+                width: 100%;
+            }
+            #northgraph1, #northgraph2, #northgraph3, #northgraph4{
+                height: 100%;
+                width: 100%;
+            }
+            #southgraph1, #southgraph2, #southgraph3, #southgraph4{
+                height: 100%;
+                width: 100%;
+            }
+
+
+/*  */

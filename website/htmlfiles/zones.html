@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Screen 3
+    </title>
+    <link rel="stylesheet" href="../css/screen3.css">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <script type="text/javascript" src="./js/jquery-1.3.min.js"></script>
+    <script type="text/javascript" src="./js/my-jquery.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+
+<!-- EAst -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // You can delete the code block below. Its purpose is just to show the right
+            // content section for the live preview.
+            $('#content > div').hide().filter('#easttmap').show();
+            $('#east').click(function () {
+                $('#northmap').hide();
+                $('#westmap').hide();
+                $('#southmap').hide();
+                $('#eastmap').show();
+
+                return false;
+            });
+            // Also the small form buttons above the textfield shouldn't do anything in the demo
+            $('button.small').click(function () {
+                return false;
+            });
+        });
+    </script>
+
+
+<!-- WEst -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // You can delete the code block below. Its purpose is just to show the right
+            // content section for the live preview.
+            $('#content > div').hide().filter('#eastmap').show();
+            $('#west').click(function () {
+                $('#eastmap').hide();
+                $('#northmap').hide();
+                $('#southmap').hide();
+                $('#westmap').show();
+
+                return false;
+            });
+            // Also the small form buttons above the textfield shouldn't do anything in the demo
+            $('button.small').click(function () {
+                return false;
+            });
+        });
+    </script>
+
+
+<!-- NOrth -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // You can delete the code block below. Its purpose is just to show the right
+            // content section for the live preview.
+            $('#content > div').hide().filter('#eastmap').show();
+
+            $('#north').click(function () {
+                console.log("sdfhkj");
+                $('#eastmap').hide();
+                $('#westmap').hide();
+                $('#southmap').hide();
+                $('#northmap').show();
+                return false;
+            });
+            // Also the small form buttons above the textfield shouldn't do anything in the demo
+            $('button.small').click(function () {
+                return false;
+            });
+        });
+    </script>
+
+
+<!-- SOuth -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        // You can delete the code block below. Its purpose is just to show the right
+        // content section for the live preview.
+        $('#content > div').hide().filter('#eastmap').show();
+
+        $('#south').click(function () {
+            console.log("sdfhkj");
+            $('#eastmap').hide();
+            $('#westmap').hide();
+            $('#southmap').show();
+            $('#northmap').hide();
+            return false;
+        });
+        // Also the small form buttons above the textfield shouldn't do anything in the demo
+        $('button.small').click(function () {
+            return false;
+        });
+    });
+</script>
+
+<!-- graphs -->
+
+<!-- East Zone Graphs-->
+
+<script type="text/javascript">
+    // Graph 1 production sales revenue
+    
+    
+        $(document).ready(function () {
+            console.log("jugug")
+            Highcharts.chart('eastgraph1', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: 'North Zone: Production Sales and Revenue'
+                },
+                // subtitle: {
+                //     text: 'Source: WorldClimate.com'
+                // },
+    
+                xAxis: [{
+                    categories: ['2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017'],
+                    crosshair: true
+                }],
+                yAxis: [{ // Secondary yAxis
+                    title: {
+                        text: 'Production (MnTPA)',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+    
+                    },
+                    labels: {
+                        format: '{value} MnTPA',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+    
+                }, { // Secondary yAxis
+                    title: {
+                        text: 'Sales (INR Cr.)',
+    
+                    },
+                    labels: {
+                        format: '{value} Cr.',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                    opposite: true
+                }],
+                tooltip: {
+                    shared: true
+                },
+                credits: {
+                    enabled: false,
+                },
+                legend: {
+                    layout: 'horizontal',
+                    verticalAlign: 'bottom',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Production',
+                    type: 'column',
+    
+                    data: [4.3,5.2,	9.5,	7.8,	6.9,	13.5,	14.4,	12.2,	12.3,	13.2],
+                    color: '#1E88E5',
+                    tooltip: {
+                        valueSuffix: ' MnTPA'
+                    }
+    
+                },
+                {
+                    name: 'Sales',
+                    type: 'column',
+    
+                    data: [4.8,	5.2	,10.0,	7.9	,7.8,	12.9,	14.6,	12.7,	12.9,	14.7],
+                    color: '#FF9800',
+                    tooltip: {
+                        valueSuffix: ' Cr.'
+                    }
+    
+                },
+                 {
+                    name: 'Revenue',
+                    type: 'spline',
+                    yAxis: 1,
+                    data: [1047.78,	1333.56,	1466.05	,1808.22,	1892.78	,1901.18,	2350.02	,2456.62,	2978.28,	3187.97],
+                    color: '#009688',
+                    tooltip: {
+                        valueSuffix: 'Cr.'
+                    }
+                }]
+            });
+        });
+    
+    
+    // <!-- Graph 2 production across plants -->
+    
+       $(document).ready(function () {
+    
+    Highcharts.chart('eastgraph2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'North Zone: Production Across Plants'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Production (MnTPA)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Nimbahera',
+            data: [1.9,	2.1	,2.0,	2.3,	1.9,3.5,3.8	,3.0,	3.2,	3.5],
+            color: '#1E88E5',
+        }, {
+            name: 'Mangrol',
+            data: [0.1,	0.9,	1.4,1.3	,1.4,	2.2	,2.5,	2.0,	2.1	,2.2],
+            color: '#009688',
+        }, {
+            name: 'Muddapur',
+            data: [0.4,	1.1	,1.6,	0.9	,1.2,	2.9	,2.7,	2.1,	2.1,	2.9],
+            color: '#FF9800',
+        }, {
+            name: 'Gotan',
+            data: [1,	0.6	,1.9,	0.6,	0.8,	1.5,1.9,	2.0	,1.9,	2],
+            color: '#D55B26',
+        }, {
+            name: 'Jharli',
+            data: [0.9,	0.5	,2.6,	2.7	,1.6,	3.4	,3.5,	3.1	,2.9,	2.6],
+            color: '#A44772',
+        },]
+    });
+    
+    });
+    
+    
+    
+    
+    // <!-- Graph 3 process wise production -->
+    
+       
+       $(document).ready(function () {
+    
+    Highcharts.chart('eastgraph3', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'North Zone: Process Wise Production'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Production (MnTPA)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Crushing',
+            data: [2.1,	2.4,	2.9,	3.12,	3.2	,3,	3.5	,3.3,	3.5,	3.1],
+            color: '#1E88E5',
+        }, 
+        // {
+        //     name: 'Drying',
+        //     data: [1.6,	2,	2.5	,2.7,	2.9	,2.5,	2.6	,2.7,	2.5	,2.1],
+        //     color: '#009688',
+        // }, 
+        {
+            name: 'Clinkerisation',
+            data: [2.8,	3.1	,3.4,	3.8,3.5	,3.1,	3.5,	3.8,	3.2,	3],
+            color: '#FF9800',
+        }, {
+            name: 'Final Product',
+            data: [5.5,	6	,6.1,	6.2,	5.6	,5.9,	6.11,	6.3,	6.1,	5.8],
+            color: '#D55B26',
+        }]
+    });
+    
+    });
+    
+    
+    
+    
+    
+    // <!-- Graph 4 product mix -->
+    
+        $(document).ready(function () {
+    
+    Highcharts.chart('eastgraph4', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'North Zone: Product Mix'
+        },
+        subtitle:{
+                text: '(% of total)'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Consumption (%)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}%<br/>'
+        },
+        plotOptions: {
+            column: {
+              
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Grey',
+            data: [13,	11,	14,	12,	18,	15,	16,	19,	17,	15],
+            color: '#FF9800',
+        }, {
+            name: 'White',
+            data: [28,	31,	30,	29,	31,	35,	38,	36,	34,	31],
+            color: ' #009688',
+        }]
+    });
+    
+    });
+    
+</script>
+
+<!-- East Zone end -->
+
+
+<!-- West Zone graphs -->
+<script type="text/javascript">
+    // Graph 1 production sales revenue
+    
+    
+        $(document).ready(function () {
+            console.log("jugug")
+            Highcharts.chart('westgraph1', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: 'West Zone: Production Sales and Revenue'
+                },
+                // subtitle: {
+                //     text: 'Source: WorldClimate.com'
+                // },
+    
+                xAxis: [{
+                    categories: ['2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017'],
+                    crosshair: true
+                }],
+                yAxis: [{ // Secondary yAxis
+                    title: {
+                        text: 'Production (MnTPA)',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+    
+                    },
+                    labels: {
+                        format: '{value} MnTPA',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+    
+                }, { // Secondary yAxis
+                    title: {
+                        text: 'Sales (INR Cr.)',
+    
+                    },
+                    labels: {
+                        format: '{value} Cr.',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                    opposite: true
+                }],
+                tooltip: {
+                    shared: true
+                },
+                credits: {
+                    enabled: false,
+                },
+                legend: {
+                    layout: 'horizontal',
+                    verticalAlign: 'bottom',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Production',
+                    type: 'column',
+    
+                    data: [3.5,	4.1,	7.2,	5.5,	4.7	,8.7,	7.8	,6.7,	7.6,	10.2],
+                    color: '#1E88E5',
+                    tooltip: {
+                        valueSuffix: ' MnTPA'
+                    }
+    
+                },
+                {
+                    name: 'Sales',
+                    type: 'column',
+    
+                    data: [2.9,	3.0,	6.9,	5.2	,4.3,	8.1	,7.8,	6.5,	6.9,	9.9],
+                    color: '#FF9800',
+                    tooltip: {
+                        valueSuffix: ' Cr.'
+                    }
+    
+                },
+                 {
+                    name: 'Revenue',
+                    type: 'spline',
+                    yAxis: 1,
+                    data: [823.26,	931.66,	1005.29	,993.25,	1193.91	,1258.13,	1342.87	,1530.94,	1751.93,	1998.43],
+                    color: '#009688',
+                    tooltip: {
+                        valueSuffix: 'Cr.'
+                    }
+                }]
+            });
+        });
+    
+    
+    // <!-- Graph 2 production across plants -->
+    
+       $(document).ready(function () {
+    
+    Highcharts.chart('westgraph2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'West Zone: Production Across Plants'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Production (MnTPA)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Chittorgarh',
+            data: [1.3,	2.1	,2.0,	2.3	,1.9,	3.5,	3.8,	3.0	,3.2,	3.5],
+            color: '#1E88E5',
+        }, {
+            name: 'Nagaur',
+            data: [0.4,	0.9	,1.4,	1.3	,1.4,	2.2,	2.5,	2.0,	2.1	,2.2],
+            color: '#009688',
+        }, {
+            name: 'Katni',
+            data: [0.1,	1.1,	1.6,	0.9,	1.2,	2.9	,2.7,	2.1	,2.1,	2.9],
+            color: '#FF9800',
+        }, {
+            name: 'Mudhol',
+            data: [1,	0.6,	1.9,	0.6	,0.8,	1.5	,1.9,	2.0	,1.9,	2],
+            color: '#D55B26',
+        }]
+    });
+    
+    });
+    
+    
+    
+    
+    // <!-- Graph 3 process wise production -->
+    
+       
+       $(document).ready(function () {
+    
+    Highcharts.chart('westgraph3', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'West Zone: Process Wise Production'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Production (MnTPA)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Crushing',
+            data: [1.5,	1.6,	1.4,	1.1	,1.2,	1	,1.7,	1.9	,2,	2.1],
+            color: '#1E88E5',
+        },
+        //  {
+        //     name: 'Drying',
+        //     data: [1.6,	2,	2.5	,2.7,	2.9	,2.5,	2.6	,2.7,	2.5	,2.1],
+        //     color: '#009688',
+        // },
+         {
+            name: 'Clinkerisation',
+            data: [2.3,	2.1	,2.5,	2.7	,2.4	,2.9,3,	3.1	,3.6,	3],
+            color: '#FF9800',
+        }, {
+            name: 'Final Product',
+            data: [5.1,	5	,4.8,	4.9	,4.3,	4.7	,4.2,	3.9	,4,	4.1],
+            color: '#D55B26',
+        }]
+    });
+    
+    });
+    
+
+    // <!-- Graph 4 product mix -->
+    
+        $(document).ready(function () {
+    
+    Highcharts.chart('westgraph4', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'West Zone: Product Mix'
+        },
+        subtitle:{
+                text: '(% of total)'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Consumption (%)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}%<br/>'
+        },
+        plotOptions: {
+            column: {
+              
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Grey',
+            data: [13,	11,	14,	12,	18,	15,	16,	19,	17,	15],
+            color: '#FF9800',
+        }, {
+            name: 'White',
+            data: [28,	31,	30,	29,	31,	35,	38,	36,	34,	31],
+            color: ' #009688',
+        }]
+    });
+    
+    });
+    
+    </script>
+<!-- West Zone end -->
+
+
+<!-- North Zone Graphs -->
+<script type="text/javascript">
+// Graph 1 production sales revenue
+
+    $(document).ready(function () {
+        console.log("jugug")
+        Highcharts.chart('northgraph1', {
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: 'North Zone: Production Sales and Revenue'
+            },
+            // subtitle: {
+            //     text: 'Source: WorldClimate.com'
+            // },
+
+            xAxis: [{
+                categories: ['2009', '2010', '2011', '2012', '2013', '2014',
+                    '2015', '2016', '2017'],
+                crosshair: true
+            }],
+            yAxis: [{ // Secondary yAxis
+                title: {
+                    text: 'Production (MnTPA)',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+
+                },
+                labels: {
+                    format: '{value} MnTPA',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+
+            }, { // Secondary yAxis
+                title: {
+                    text: 'Sales (INR Cr.)',
+
+                },
+                labels: {
+                    format: '{value} Cr.',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            credits: {
+                enabled: false,
+            },
+            legend: {
+                layout: 'horizontal',
+                verticalAlign: 'bottom',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Production',
+                type: 'column',
+
+                data: [4.3,5.2,	9.5,	7.8,	6.9,	13.5,	14.4,	12.2,	12.3,	13.2],
+                color: '#1E88E5',
+                tooltip: {
+                    valueSuffix: ' MnTPA'
+                }
+
+            },
+            {
+                name: 'Sales',
+                type: 'column',
+
+                data: [4.8,	5.2	,10.0,	7.9	,7.8,	12.9,	14.6,	12.7,	12.9,	14.7],
+                color: '#FF9800',
+                tooltip: {
+                    valueSuffix: ' Cr.'
+                }
+
+            },
+             {
+                name: 'Revenue',
+                type: 'spline',
+                yAxis: 1,
+                data: [1047.78,	1333.56,	1466.05	,1808.22,	1892.78	,1901.18,	2350.02	,2456.62,	2978.28,	3187.97],
+                color: '#009688',
+                tooltip: {
+                    valueSuffix: 'Cr.'
+                }
+            }]
+        });
+    });
+
+// <!-- Graph 2 production across plants -->
+
+   $(document).ready(function () {
+
+Highcharts.chart('northgraph2', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'North Zone: Production Across Plants'
+    },
+    xAxis: {
+        categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+    },
+    yAxis: {
+        
+        title: {
+            text: 'Production (MnTPA)'
+        },
+        stackLabels: {
+            enabled: false,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    // legend: {
+    //     align: 'center',
+    //     x: -30,
+    //     verticalAlign: 'bottom',
+    //     y: 25,
+    //     floating: true,
+    //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+    //     borderColor: '#CCC',
+    //     borderWidth: 1,
+    //     shadow: false
+    // },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: false,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        name: 'Nimbahera',
+        data: [1.9,	2.1	,2.0,	2.3,	1.9,3.5,3.8	,3.0,	3.2,	3.5],
+        color: '#1E88E5',
+    }, {
+        name: 'Mangrol',
+        data: [0.1,	0.9,	1.4,1.3	,1.4,	2.2	,2.5,	2.0,	2.1	,2.2],
+        color: '#009688',
+    }, {
+        name: 'Muddapur',
+        data: [0.4,	1.1	,1.6,	0.9	,1.2,	2.9	,2.7,	2.1,	2.1,	2.9],
+        color: '#FF9800',
+    }, {
+        name: 'Gotan',
+        data: [1,	0.6	,1.9,	0.6,	0.8,	1.5,1.9,	2.0	,1.9,	2],
+        color: '#D55B26',
+    }, {
+        name: 'Jharli',
+        data: [0.9,	0.5	,2.6,	2.7	,1.6,	3.4	,3.5,	3.1	,2.9,	2.6],
+        color: '#A44772',
+    },]
+});
+
+});
+
+// <!-- Graph 3 process wise production -->
+
+   $(document).ready(function () {
+
+Highcharts.chart('northgraph3', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'North Zone: Process Wise Production'
+    },
+    xAxis: {
+        categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+    },
+    yAxis: {
+        
+        title: {
+            text: 'Production (MnTPA)'
+        },
+        stackLabels: {
+            enabled: false,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    // legend: {
+    //     align: 'center',
+    //     x: -30,
+    //     verticalAlign: 'bottom',
+    //     y: 25,
+    //     floating: true,
+    //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+    //     borderColor: '#CCC',
+    //     borderWidth: 1,
+    //     shadow: false
+    // },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+    },
+    plotOptions: {
+        column: {
+            dataLabels: {
+                enabled: false,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        name: 'Crushing',
+        data: [2.1,	2.4,	2.9,	3.12,	3.2	,3,	3.5	,3.3,	3.5,	3.1],
+        color: '#1E88E5',
+    }, 
+    // {
+    //     name: 'Drying',
+    //     data: [1.6,	2,	2.5	,2.7,	2.9	,2.5,	2.6	,2.7,	2.5	,2.1],
+    //     color: '#009688',
+    // },
+     {
+        name: 'Clinkerisation',
+        data: [2.8,	3.1	,3.4,	3.8,3.5	,3.1,	3.5,	3.8,	3.2,	3],
+        color: '#FF9800',
+    }, {
+        name: 'Final Product',
+        data: [5.5,	6	,6.1,	6.2,	5.6	,5.9,	6.11,	6.3,	6.1,	5.8],
+        color: '#D55B26',
+    }]
+});
+
+});
+
+// <!-- Graph 4 product mix -->
+
+    $(document).ready(function () {
+
+Highcharts.chart('northgraph4', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'North Zone: Product Mix'
+    },
+    subtitle:{
+            text: '(% of total)'
+    },
+    xAxis: {
+        categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+    },
+    yAxis: {
+        max:50,
+        title: {
+            text: 'Consumption (%)'     
+        },
+        stackLabels: {
+            enabled: false,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    // legend: {
+    //     align: 'center',
+    //     x: -30,
+    //     verticalAlign: 'bottom',
+    //     y: 25,
+    //     floating: true,
+    //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+    //     borderColor: '#CCC',
+    //     borderWidth: 1,
+    //     shadow: false
+    // },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}%<br/>'
+    },
+    plotOptions: {
+        column: {
+          
+            dataLabels: {
+                enabled: false,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        name: 'Grey',
+        data: [31,34,39,37,40,39,44,47,49,45],
+        color: '#FF9800',
+    }, {
+        name: 'White',
+        data: [17,18,15,19,18,17,19,22,21,20],
+        color: ' #009688',
+    }]
+});
+
+});
+
+</script>
+
+<!-- north Zone end -->
+
+<!-- South Graphs -->
+<script type="text/javascript">
+    // Graph 1 production sales revenue
+    
+    
+        $(document).ready(function () {
+            console.log("jugug")
+            Highcharts.chart('southgraph1', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: 'North Zone: Production Sales and Revenue'
+                },
+                // subtitle: {
+                //     text: 'Source: WorldClimate.com'
+                // },
+    
+                xAxis: [{
+                    categories: ['2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017'],
+                    crosshair: true
+                }],
+                yAxis: [{ // Secondary yAxis
+                    title: {
+                        text: 'Production (MnTPA)',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+    
+                    },
+                    labels: {
+                        format: '{value} MnTPA',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+    
+                }, { // Secondary yAxis
+                    title: {
+                        text: 'Sales (INR Cr.)',
+    
+                    },
+                    labels: {
+                        format: '{value} Cr.',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                    opposite: true
+                }],
+                tooltip: {
+                    shared: true
+                },
+                credits: {
+                    enabled: false,
+                },
+                legend: {
+                    layout: 'horizontal',
+                    verticalAlign: 'bottom',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Production',
+                    type: 'column',
+    
+                    data: [4.3,5.2,	9.5,	7.8,	6.9,	13.5,	14.4,	12.2,	12.3,	13.2],
+                    color: '#1E88E5',
+                    tooltip: {
+                        valueSuffix: ' MnTPA'
+                    }
+    
+                },
+                {
+                    name: 'Sales',
+                    type: 'column',
+    
+                    data: [4.8,	5.2	,10.0,	7.9	,7.8,	12.9,	14.6,	12.7,	12.9,	14.7],
+                    color: '#FF9800',
+                    tooltip: {
+                        valueSuffix: ' Cr.'
+                    }
+    
+                },
+                 {
+                    name: 'Revenue',
+                    type: 'spline',
+                    yAxis: 1,
+                    data: [1047.78,	1333.56,	1466.05	,1808.22,	1892.78	,1901.18,	2350.02	,2456.62,	2978.28,	3187.97],
+                    color: '#009688',
+                    tooltip: {
+                        valueSuffix: 'Cr.'
+                    }
+                }]
+            });
+        });
+    
+    
+    // <!-- Graph 2 production across plants -->
+    
+       $(document).ready(function () {
+    
+    Highcharts.chart('southgraph2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'North Zone: Production Across Plants'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Production (MnTPA)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Nimbahera',
+            data: [1.9,	2.1	,2.0,	2.3,	1.9,3.5,3.8	,3.0,	3.2,	3.5],
+            color: '#1E88E5',
+        }, {
+            name: 'Mangrol',
+            data: [0.1,	0.9,	1.4,1.3	,1.4,	2.2	,2.5,	2.0,	2.1	,2.2],
+            color: '#009688',
+        }, {
+            name: 'Muddapur',
+            data: [0.4,	1.1	,1.6,	0.9	,1.2,	2.9	,2.7,	2.1,	2.1,	2.9],
+            color: '#FF9800',
+        }, {
+            name: 'Gotan',
+            data: [1,	0.6	,1.9,	0.6,	0.8,	1.5,1.9,	2.0	,1.9,	2],
+            color: '#D55B26',
+        }, {
+            name: 'Jharli',
+            data: [0.9,	0.5	,2.6,	2.7	,1.6,	3.4	,3.5,	3.1	,2.9,	2.6],
+            color: '#A44772',
+        },]
+    });
+    
+    });
+    
+    
+    // <!-- Graph 3 process wise production -->
+    
+       
+       $(document).ready(function () {
+    
+    Highcharts.chart('southgraph3', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'North Zone: Process Wise Production'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Production (MnTPA)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y} MnTPA<br/>'
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Crushing',
+            data: [2.1,	2.4,	2.9,	3.12,	3.2	,3,	3.5	,3.3,	3.5,	3.1],
+            color: '#1E88E5',
+        }, 
+        // {
+        //     name: 'Drying',
+        //     data: [1.6,	2,	2.5	,2.7,	2.9	,2.5,	2.6	,2.7,	2.5	,2.1],
+        //     color: '#009688',
+        // }, 
+        {
+            name: 'Clinkerisation',
+            data: [2.8,	3.1	,3.4,	3.8,3.5	,3.1,	3.5,	3.8,	3.2,	3],
+            color: '#FF9800',
+        }, {
+            name: 'Final Product',
+            data: [5.5,	6	,6.1,	6.2,	5.6	,5.9,	6.11,	6.3,	6.1,	5.8],
+            color: '#D55B26',
+        }]
+    });
+    
+    });
+    
+    
+    // <!-- Graph 4 product mix -->
+    
+        $(document).ready(function () {
+    
+    Highcharts.chart('southgraph4', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'North Zone: Product Mix'
+        },
+        subtitle:{
+                text: '(% of total)'
+        },
+        xAxis: {
+            categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+        },
+        yAxis: {
+            
+            title: {
+                text: 'Consumption (%)'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        // legend: {
+        //     align: 'center',
+        //     x: -30,
+        //     verticalAlign: 'bottom',
+        //     y: 25,
+        //     floating: true,
+        //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //     borderColor: '#CCC',
+        //     borderWidth: 1,
+        //     shadow: false
+        // },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}%<br/>'
+        },
+        plotOptions: {
+            column: {
+              
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Grey',
+            data: [13,	11,	14,	12,	18,	15,	16,	19,	17,	15],
+            color: '#FF9800',
+        }, {
+            name: 'White',
+            data: [28,	31,	30,	29,	31,	35,	38,	36,	34,	31],
+            color: ' #009688',
+        }]
+    });
+    
+    });
+    
+    </script>
+    
+<!-- south Zone end -->
+
+
+
+
+<!-- Graphs end -->
+
+</head>
+
+<body style="background-color:#ECECEC">
+    <div class="topbar">
+        <div id="container">
+            <img src="../assets/dDriven.jpg" style="position: absolute;
+                        top: 4%;
+                        left: 3%;
+                        font-size: 18px;width: 6%;height: 5%"
+                }">
+        </div>
+    </div>
+    <h1 style="margin-left:38%"> Zone Wise Production</h1>
+
+
+    <div class="columns">
+        <div class="column1">
+
+
+
+            <img src="../assets/newmap2.png">
+            <div id="east"><a href="#eastmap"> E</a></div>
+            <div id="west"><a href="#westmap"> W</a></div>
+            <div id="north"> <a href="#northmap">N</a></div>
+            <div id="south"><a href="#southmap">S</a></div>
+        </div>
+
+    </div>
+    <div id="content">
+
+        <div id="eastmap">
+            <center style="font-size:170%;"> "East Zone (*Dummy Data)" </center>
+            <div class="box1">
+
+                <div id="eastgraph1" ></div>
+
+            </div>
+            <div class="box2">
+
+                <div id="eastgraph2" ></div>
+
+            </div>
+
+            <div class="box3">
+
+                <div id="eastgraph3" ></div>
+
+            </div>
+
+            <div class="box4">
+
+                <div id="eastgraph4" ></div>
+            </div>
+        </div>
+
+
+        <div id="westmap">
+                <center style="font-size:170%;"> "West Zone" </center>
+            <div class="box1">
+
+                <div id="westgraph1" ></div>
+
+            </div>
+            <div class="box2">
+
+                <div id="westgraph2"></div>
+
+            </div>
+
+            <div class="box3">
+
+                <div id="westgraph3" ></div>
+
+            </div>
+
+            <div class="box4">
+
+                <div id="westgraph4" ></div>
+
+            </div>
+        </div>
+
+        <div id="northmap">
+                <center style="font-size:170%;"> "North Zone" </center>
+
+            <div class="box1">
+
+                <div id="northgraph1" ></div>
+
+            </div>
+            <div class="box2">
+
+                <div id="northgraph2" ></div>
+
+            </div>
+
+            <div class="box3">
+
+                <div id="northgraph3" ></div>
+            </div>
+
+            <div class="box4">
+
+                <div id="northgraph4" ></div>
+            </div>
+        </div>
+
+
+        <div id="southmap">
+                <center style="font-size:170%;"> "South Zone  (*Dummy Data)" </center>
+
+            <div class="box2">
+
+                <div id="southgraph1" ></div>
+
+            </div>
+            <div class="box1">
+                <div id="southgraph2" ></div>
+
+                </div>
+
+            <div class="box3">
+
+                <div id="southgraph3" ></div>
+
+            </div>
+
+            <div class="box4">
+
+                <div id="southgraph4" ></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

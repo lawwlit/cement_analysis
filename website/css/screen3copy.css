@@ -1,0 +1,111 @@
+.columns{
+    margin-top: 3%;
+    margin-left: 2%;
+    width: 100%;
+      
+    
+}
+#content {
+    background-color: lightgrey;
+    position: relative;
+    text-align: center;
+    margin-left: 33%;
+    width: 29%;
+    float: left;
+    overflow: hidden;
+    
+}
+
+
+
+.columns #content{
+  
+    margin-left: 1%;
+    width: 65%;
+    float: left;
+}
+
+.column2 .row3, .row4, .column3 .row5, .row6 {
+    
+height:50%;
+background-color: lightgrey;
+margin-right: 1%;
+margin-bottom: 1%;
+border-radius: 6px;
+text-align: center;
+
+}
+
+.column1 {
+    background-color: lightgrey;
+    position: relative;
+    text-align: center;
+    margin-left: 1%;
+    width: 29%;
+    float: left;
+    overflow: hidden;
+    
+}
+
+#east {
+    position: absolute;
+    top: 44%;
+    left: 60%;
+}
+
+#west {
+    position: absolute;
+    top: 44%;
+    left: 25%;
+}
+a{
+    text-decoration: none;
+    font-size: 300%;
+    color: white;
+}
+
+#north{
+    position: absolute;
+    top: 20%;
+    left: 33%;
+}
+
+#south {
+    position: absolute;
+    top: 70%;
+    left: 33%;
+}
+
+
+.column1 img{
+    margin-top: 2%;
+    width: 140%;
+    height: 70%;
+
+}
+
+
+table {
+
+    font-family: arial, sans-serif;
+    font-size:10px;
+    border-collapse: collapse;
+    width: 90%;
+    width: 90%;
+    margin-left: 5%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+a{
+    font-size: 150%;
+    color: white;
+}

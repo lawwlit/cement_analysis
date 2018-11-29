@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Inventory across Plants</title>
+    <link rel="stylesheet" type="text/css" href="css/cement.css" />
+    <script type="text/javascript" src="./js/jquery-1.3.min.js"></script>
+    <script type="text/javascript" src="./js/my-jquery.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    
+
+  
+
+    <script type="text/javascript">
+
+
+        //    graph 1
+
+        $(document).ready(function () {
+
+                Highcharts.chart('rawmaterialpercent', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Raw Materials Consumed (2009) '
+                    },
+                    subtitle: {
+                        text: '(INR Crores) '
+                    },
+                    xAxis: {
+                        categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']
+                    },
+                    yAxis: {
+                        
+                        title: {
+                            text: 'Consumption (in INR Crores)'
+                        },
+                        stackLabels: {
+                            enabled: false,
+                            style: {
+                                fontWeight: 'bold',
+                                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                            }
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    // legend: {
+                    //     align: 'center',
+                    //     x: -30,
+                    //     verticalAlign: 'bottom',
+                    //     y: 25,
+                    //     floating: true,
+                    //     backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    //     borderColor: '#CCC',
+                    //     borderWidth: 1,
+                    //     shadow: false
+                    // },
+                    tooltip: {
+                        headerFormat: '<b>{point.x}</b><br/>',
+                        pointFormat: '{series.name}: Rs. {point.y} Crores<br/>'
+                    },
+                    plotOptions: {
+                        column: {
+
+                            dataLabels: {
+                                enabled: false,
+                                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Imported',
+                        data: [15.36, 33.49, 46.29, 63.32, 101.61, 140.1, 160.9, 187.99, 189.64, 188.37],
+                        color: '#FF9800',
+                    }, {
+                        name: 'Indegenous',
+                        data: [147.59, 165.64, 230.86, 248.84, 319.05, 322.12, 395.29, 477.8, 490.55, 518.65],
+                        color: ' #009688',
+                    }]
+                });
+
+            });
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="rawmaterialpercent" style="margin-top:5%; margin-left: 20%; width:60%"></div>
+</body>
+
+</html>
